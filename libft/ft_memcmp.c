@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smayrand <smayrand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:54:19 by smayrand          #+#    #+#             */
-/*   Updated: 2022/11/16 02:01:21 by smayrand         ###   ########.fr       */
+/*   Created: 2022/04/06 10:58:39 by smayrand          #+#    #+#             */
+/*   Updated: 2022/04/06 11:22:44 by smayrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
-
-typedef struct s_var
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	**env;
-	char	**input;
-	char	*prompt;
-	char	*buffer;
-	char	buffert;
-	int		i;
-	int		flag;
-}	t_var;
+	size_t	i;
 
-#endif
+	i = 0;
+	while (i < n)
+	{
+		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		i++;
+	}
+	return (0);
+}

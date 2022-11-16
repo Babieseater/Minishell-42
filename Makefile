@@ -6,7 +6,7 @@
 #    By: smayrand <smayrand@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 12:54:38 by smayrand          #+#    #+#              #
-#    Updated: 2022/11/15 12:55:15 by smayrand         ###   ########.fr        #
+#    Updated: 2022/11/15 20:46:04 by smayrand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ NAME = minishell
 
 CC = gcc -g 
 CFLAGS = -Wall -Werror -Wextra
+MSFLAGS = -lreadline -lncurses
 AR = ar -rcs
 
 RM = rm -f

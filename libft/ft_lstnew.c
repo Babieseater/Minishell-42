@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smayrand <smayrand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:50:46 by smayrand          #+#    #+#             */
-/*   Updated: 2022/11/15 14:26:44 by smayrand         ###   ########.fr       */
+/*   Created: 2022/04/13 11:23:03 by smayrand          #+#    #+#             */
+/*   Updated: 2022/04/13 12:24:25 by smayrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int argc, char ***argv, char **env)
+t_list	*ft_lstnew(void *content)
 {
-	
+	t_list	*new;
+
+	new = ft_calloc(1, sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

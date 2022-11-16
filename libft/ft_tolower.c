@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smayrand <smayrand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:54:19 by smayrand          #+#    #+#             */
-/*   Updated: 2022/11/16 02:01:21 by smayrand         ###   ########.fr       */
+/*   Created: 2022/03/28 14:58:09 by smayrand          #+#    #+#             */
+/*   Updated: 2022/04/04 16:30:53 by smayrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
-
-typedef struct s_var
+int	ft_tolower(int c)
 {
-	char	**env;
-	char	**input;
-	char	*prompt;
-	char	*buffer;
-	char	buffert;
-	int		i;
-	int		flag;
-}	t_var;
-
-#endif
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
+}

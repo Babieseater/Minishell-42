@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smayrand <smayrand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:54:19 by smayrand          #+#    #+#             */
-/*   Updated: 2022/11/16 02:01:21 by smayrand         ###   ########.fr       */
+/*   Created: 2022/04/06 11:40:38 by smayrand          #+#    #+#             */
+/*   Updated: 2022/04/19 15:25:02 by smayrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
-
-typedef struct s_var
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	**env;
-	char	**input;
-	char	*prompt;
-	char	*buffer;
-	char	buffert;
-	int		i;
-	int		flag;
-}	t_var;
+	size_t	i;
+	size_t	ii;
 
-#endif
+	i = 0;
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	while (haystack[i] != '\0' && i < len)
+	{
+		ii = 0;
+		while (haystack[i + ii] == needle[ii] && i + ii < len)
+		{
+			if (needle[ii + 1] == '\0')
+				return ((char *)haystack + i);
+			ii++;
+		}
+		i++;
+	}
+	return (NULL);
+}

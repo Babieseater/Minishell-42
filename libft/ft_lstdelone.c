@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smayrand <smayrand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:54:19 by smayrand          #+#    #+#             */
-/*   Updated: 2022/11/16 02:01:21 by smayrand         ###   ########.fr       */
+/*   Created: 2022/04/14 12:25:11 by smayrand          #+#    #+#             */
+/*   Updated: 2022/04/19 16:37:22 by smayrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
-
-typedef struct s_var
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	char	**env;
-	char	**input;
-	char	*prompt;
-	char	*buffer;
-	char	buffert;
-	int		i;
-	int		flag;
-}	t_var;
-
-#endif
+	if (del)
+		del(lst->content);
+	free(lst);
+}

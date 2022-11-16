@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smayrand <smayrand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:54:19 by smayrand          #+#    #+#             */
-/*   Updated: 2022/11/16 02:01:21 by smayrand         ###   ########.fr       */
+/*   Created: 2022/03/31 14:03:46 by smayrand          #+#    #+#             */
+/*   Updated: 2022/04/04 15:00:12 by smayrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
-
-typedef struct s_var
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	**env;
-	char	**input;
-	char	*prompt;
-	char	*buffer;
-	char	buffert;
-	int		i;
-	int		flag;
-}	t_var;
+	size_t	i;
 
-#endif
+	i = 0;
+	if (!dst && !src)
+		return (NULL);
+	if (dst < src)
+	{
+		while (len > i)
+		{
+			*((char *)dst + i) = *((char *)src + i);
+			i++;
+		}
+	}
+	else
+	{
+		while (len > 0)
+		{
+			*((char *)dst + len - 1) = *((char *)src + len - 1);
+			len--;
+		}
+	}
+	return (dst);
+}

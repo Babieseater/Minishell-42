@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smayrand <smayrand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:54:19 by smayrand          #+#    #+#             */
-/*   Updated: 2022/11/16 02:01:21 by smayrand         ###   ########.fr       */
+/*   Created: 2022/04/04 15:58:28 by smayrand          #+#    #+#             */
+/*   Updated: 2022/04/05 11:47:42 by smayrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
-
-typedef struct s_var
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	char	**env;
-	char	**input;
-	char	*prompt;
-	char	*buffer;
-	char	buffert;
-	int		i;
-	int		flag;
-}	t_var;
+	size_t	di;
+	size_t	si;
+	size_t	sin;
+	size_t	in;
 
-#endif
+	di = ft_strlen(dst);
+	si = ft_strlen(src);
+	in = 0;
+	sin = 0;
+	if (dstsize <= 0 || di > dstsize)
+		return (si + dstsize);
+	while (dst[sin])
+		sin++;
+	while (src[in] && sin < dstsize - 1)
+	{
+		dst[sin++] = src[in++];
+	}
+	dst[sin] = '\0';
+	return (di + si);
+}

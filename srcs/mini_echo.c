@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   mini_echo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smayrand <smayrand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:54:19 by smayrand          #+#    #+#             */
-/*   Updated: 2022/11/16 02:01:21 by smayrand         ###   ########.fr       */
+/*   Created: 2022/11/16 00:39:51 by smayrand          #+#    #+#             */
+/*   Updated: 2022/11/16 02:02:37 by smayrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "../minishell.h"
 
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <signal.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
-
-typedef struct s_var
+void	mini_echo(t_var *data)
 {
-	char	**env;
-	char	**input;
-	char	*prompt;
-	char	*buffer;
-	char	buffert;
-	int		i;
-	int		flag;
-}	t_var;
-
-#endif
+	data->i = 0;
+	data->flag = 0;
+	if (ft_strnstr(data->input[1], "-n", ft_strlen(data->input[1])))
+	{
+		data->flag = 1;
+		data->i = 1;
+	}
+	while (data->input[++data->i] && data->input[data->i + 1])
+	{
+		printf("%s ", data->input[data->i]);
+	}
+	printf("%s", data->input[data->i]);
+	if (data->flag == 0)
+		printf("\n");
+}
