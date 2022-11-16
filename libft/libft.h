@@ -6,7 +6,7 @@
 /*   By: smayrand <smayrand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 12:45:11 by smayrand          #+#    #+#             */
-/*   Updated: 2022/11/16 02:27:19 by smayrand         ###   ########.fr       */
+/*   Updated: 2022/11/16 06:32:59 by smayrand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_free_ptr(char **tab);
+void	ft_swap_char(char *a, char *b);
 
 #endif

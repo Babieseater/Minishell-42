@@ -6,7 +6,7 @@
 #    By: smayrand <smayrand@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/29 09:53:41 by smayrand          #+#    #+#              #
-#    Updated: 2022/11/16 02:27:44 by smayrand         ###   ########.fr        #
+#    Updated: 2022/11/16 06:36:45 by smayrand         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,8 @@ ft_putchar_fd.c\
 ft_putstr_fd.c\
 ft_putendl_fd.c\
 ft_putnbr_fd.c\
-ft_free_ptr.c
+ft_free_ptr.c\
+ft_swap_char.c
 
 OBJS = $(SRCS:.c=.o)
 
